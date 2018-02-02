@@ -89,12 +89,12 @@ public class TableRow2EntityFn extends DoFn<TableRow, Entity> {
     // INTEGER
     else if (value instanceof java.lang.Integer) {
       v = Value.newBuilder().setIntegerValue(((Integer) value).intValue())
-          .setExcludeFromIndexes(true).build();
+          .setExcludeFromIndexes(false).build();
     }
     else if (value instanceof String && parseInteger((String) value) != null) {
       Integer integer = parseInteger((String) value);
       v = Value.newBuilder().setIntegerValue(integer.intValue())
-          .setExcludeFromIndexes(true).build();
+          .setExcludeFromIndexes(false).build();
     }
     // LONG
     else if (value instanceof java.lang.Long) {
@@ -139,7 +139,7 @@ public class TableRow2EntityFn extends DoFn<TableRow, Entity> {
     // STRING
     else if (value instanceof String) {
       v = Value.newBuilder().setStringValue((String) value)
-          .setExcludeFromIndexes(true).build();
+          .setExcludeFromIndexes(false).build();
     }
     // RECORD
     else if (value instanceof List) {
